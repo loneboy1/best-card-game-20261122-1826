@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emerald Table — Blackjack</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="table">
+  <header>
+    <div class="brand">
+      <span class="suit-spade">&#9824;</span>
+      <h1>EMERALD TABLE</h1>
+      <span class="suit-heart">&#9829;</span>
+    </div>
+    <p class="tagline">Blackjack &middot; 6-deck shoe &middot; Blackjack pays 3 to 2 &middot; Dealer stands on 17</p>
+  </header>
+
+  <section id="bankroll-bar">
+    <div class="bank"><span class="label">BANKROLL</span><span id="bankroll" class="value">$1,000</span></div>
+    <div class="bank"><span class="label">CURRENT BET</span><span id="current-bet" class="value">$0</span></div>
+    <div class="bank"><span class="label">SHOE</span><span id="shoe" class="value">312 cards</span></div>
+    <button id="new-shoe" class="ghost-btn" title="Shuffle a fresh 6-deck shoe">New shoe</button>
+  </section>
+
+  <section id="dealer-zone" class="hand-zone">
+    <div class="zone-head"><span>DEALER</span><span id="dealer-value" class="hand-value"></span></div>
+    <div id="dealer-cards" class="cards"></div>
+  </section>
+
+  <div id="message" class="message">Place your bet to begin. Good luck at the table.</div>
+
+  <section id="player-zone" class="hand-zone">
+    <div class="zone-head"><span id="player-label">YOU</span><span id="player-value" class="hand-value"></span></div>
+    <div id="player-cards" class="cards"></div>
+    <div id="split-cards" class="cards split" style="display:none"></div>
+  </section>
+
+  <section id="controls">
+    <div id="betting">
+      <span class="ctl-label">BET</span>
+      <button class="chip chip-10" data-bet="10">$10</button>
+      <button class="chip chip-25" data-bet="25">$25</button>
+      <button class="chip chip-50" data-bet="50">$50</button>
+      <button class="chip chip-100" data-bet="100">$100</button>
+      <button id="clear-bet" class="action-btn">Clear</button>
+      <button id="deal" class="action-btn primary">Deal</button>
+    </div>
+    <div id="actions" style="display:none">
+      <button id="hit" class="action-btn primary">Hit</button>
+      <button id="stand" class="action-btn">Stand</button>
+      <button id="double" class="action-btn">Double</button>
+      <button id="split" class="action-btn">Split</button>
+      <button id="rebet" class="action-btn">Rebet &amp; Deal</button>
+    </div>
+    <div id="after-hand" style="display:none">
+      <button id="next-hand" class="action-btn primary">Next hand</button>
+      <button id="rebuy" class="action-btn" style="display:none">Rebuy $1,000</button>
+    </div>
+  </section>
+
+  <section id="stats">
+    <div class="stat"><span class="label">HANDS</span><span id="st-hands" class="value">0</span></div>
+    <div class="stat"><span class="label">WINS</span><span id="st-wins" class="value">0</span></div>
+    <div class="stat"><span class="label">LOSSES</span><span id="st-losses" class="value">0</span></div>
+    <div class="stat"><span class="label">PUSHES</span><span id="st-pushes" class="value">0</span></div>
+    <div class="stat"><span class="label">BLACKJACKS</span><span id="st-bj" class="value">0</span></div>
+    <div class="stat"><span class="label">STREAK</span><span id="st-streak" class="value">0</span></div>
+    <div class="stat"><span class="label">BIGGEST WIN</span><span id="st-biggest" class="value">$0</span></div>
+    <div class="stat"><span class="label">BEST BANKROLL</span><span id="st-best" class="value">$1,000</span></div>
+  </section>
+
+  <section id="log-wrap">
+    <div class="log-head">TABLE LOG</div>
+    <ul id="log"></ul>
+  </section>
+
+  <footer>
+    <p>Goal: reach <strong>$5,000</strong> to earn the <strong>Table Master</strong> badge. No real money — chips only, for fun.</p>
+    <p class="made">Emerald Table Blackjack &middot; a complete card game &middot; built for make.fun</p>
+  </footer>
+</div>
+<script src="src/blackjack.js"></script>
+</body>
+</html>
